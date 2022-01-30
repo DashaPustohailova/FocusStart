@@ -3,10 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/currencyFragment2">
+    app:startDestination="@id/currencyFragment">
     <fragment
-        android:id="@+id/currencyFragment2"
+        android:id="@+id/testFragment"
+        android:name="com.example.focusstart.ui.currency.TestFragment"
+        android:label="fragment_test"
+        tools:layout="@layout/fragment_test" />
+    <fragment
+        android:id="@+id/currencyFragment"
         android:name="com.exapmle.focusstart.ui.currency.CurrencyFragment"
         android:label="CurrencyFragment"
-        tools:layout="@layout/fragment_currency"/>
+        tools:layout="@layout/fragment_currency" />
 </navigation>

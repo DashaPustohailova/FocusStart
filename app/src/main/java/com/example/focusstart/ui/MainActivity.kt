@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.focusstart.R
+import com.exapmle.focusstart.model.retrofit.CommonRetrofit
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
     lateinit var mNavController: NavController
@@ -18,5 +19,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 //        val navController = navHostFragment.navController
         mNavController = navHostFragment.navController
+
     }
 }

@@ -5,11 +5,6 @@
     android:id="@+id/navigation_graph"
     app:startDestination="@id/currencyFragment">
     <fragment
-        android:id="@+id/testFragment"
-        android:name="com.example.focusstart.ui.currency.TestFragment"
-        android:label="fragment_test"
-        tools:layout="@layout/fragment_test" />
-    <fragment
         android:id="@+id/currencyFragment"
         android:name="com.exapmle.focusstart.ui.currency.CurrencyFragment"
         android:label="CurrencyFragment"

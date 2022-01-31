@@ -9,4 +9,5 @@ class CurrencyHolder(view: View): RecyclerView.ViewHolder(view) {
     val itemNameValute: TextView = view.item_name_valute
     val itemValue: TextView = view.item_value
     val itemCode: TextView = view.item_code
+//    val itemTimestamp: TextView = view.item_timestamp
 }

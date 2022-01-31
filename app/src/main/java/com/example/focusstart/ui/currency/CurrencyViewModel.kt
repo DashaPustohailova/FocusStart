@@ -15,6 +15,16 @@ class CurrencyViewModel(private val api: ApiMoney) : ViewModel(), KoinComponent 
     private val _currencyList = MutableLiveData<List<CurrencyResponse.CurrencyInfo?>>()
     val currencyList: LiveData<List<CurrencyResponse.CurrencyInfo?>> = _currencyList
 
+    private val _updateDate = MutableLiveData<String?>()
+    val updateDate: LiveData<String?> = _updateDate
+
+
+    fun getUpdateDate(){
+        viewModelScope.launch {
+            val currencyResponse = api.getCurrency()
+            _updateDate.postValue(currencyResponse.timestamp)
+        }
+    }
     fun getCurrency() {
         viewModelScope.launch{
             //получили CurrencyResponse

@@ -8,5 +8,20 @@
         android:id="@+id/currencyFragment"
         android:name="com.exapmle.focusstart.ui.currency.CurrencyFragment"
         android:label="CurrencyFragment"
-        tools:layout="@layout/fragment_currency" />
+        tools:layout="@layout/fragment_currency" >
+        <action
+            android:id="@+id/action_currencyFragment_to_calculateFragment"
+            app:destination="@id/calculateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calculateFragment"
+        android:name="com.example.focusstart.ui.calculate.CalculateFragment"
+        android:label="fragment_calculate"
+        tools:layout="@layout/fragment_calculate" >
+        <action
+            android:id="@+id/action_calculateFragment_to_currencyFragment"
+            app:destination="@id/currencyFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/navigation_graph" />
+    </fragment>
 </navigation>

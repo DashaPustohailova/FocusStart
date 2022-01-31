@@ -9,6 +9,7 @@ import com.exapmle.focusstart.model.server_model.CurrencyResponse
 class CurrencyAdapter: RecyclerView.Adapter<CurrencyHolder>() {
 
     private var mListCurrency = emptyList<CurrencyResponse.CurrencyInfo?>()
+    private var timestampt = ""
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CurrencyHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.valute_item, parent, false)
@@ -19,6 +20,7 @@ class CurrencyAdapter: RecyclerView.Adapter<CurrencyHolder>() {
         holder.itemNameValute.text = mListCurrency[position]?.name
         holder.itemCode.text = "Код: " +  mListCurrency[position]?.charCode + " " + mListCurrency[position]?.numCode
         holder.itemValue.text = "Курс: " + mListCurrency[position]?.value  + " ₽"
+//        holder.itemTimestamp.text = timestampt
     }
 
     override fun getItemCount(): Int = mListCurrency.size
@@ -27,4 +29,10 @@ class CurrencyAdapter: RecyclerView.Adapter<CurrencyHolder>() {
         mListCurrency = list?: emptyList()
         notifyDataSetChanged()
     }
+
+    fun setTimestamp(time: String?){
+        timestampt = time?:""
+        notifyDataSetChanged()
+    }
+
 }

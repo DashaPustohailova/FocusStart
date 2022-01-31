@@ -14,14 +14,6 @@
         android:layout_height="wrap_content"
         app:backgroundTint="#9EBDF3FA">
 
-        val id: String?
-        val numCode: String?
-        val charCode: String?
-        val nominal: Int?
-        val name: String?
-        val value: Float?
-        val previous: Float?
-
         <TextView
             android:id="@+id/item_name_valute"
             android:layout_width="match_parent"
@@ -37,6 +29,20 @@
             tools:text="Название валюты"
             app:backgroundTint="#9EBDF3FA"/>
 
+<!--        <TextView-->
+<!--            android:id="@+id/item_timestamp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="16dp"-->
+<!--            android:gravity="center"-->
+<!--            android:lines="1"-->
+<!--            android:textColor="#264047"-->
+<!--            app:backgroundTint="#9EBDF3FA"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/item_name_valute"-->
+<!--            tools:text="Дата" />-->
+
 
         <TextView
             android:id="@+id/item_value"
@@ -50,7 +56,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/item_name_valute"
+            app:layout_constraintTop_toBottomOf="@+id/item_name_valute"
             app:layout_constraintVertical_bias="0.484"
             tools:text="Курс" />
 

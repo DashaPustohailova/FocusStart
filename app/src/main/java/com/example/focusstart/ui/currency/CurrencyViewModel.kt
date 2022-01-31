@@ -12,10 +12,6 @@ import org.koin.core.component.KoinComponent
 
 class CurrencyViewModel(private val api: ApiMoney) : ViewModel(), KoinComponent {
 
-//    private var api: ApiMoney = CommonRetrofit.apiMoney
-
-//    private val _currencyList = MutableLiveData<CurrencyResponse>()
-//    val currencyList: LiveData<CurrencyResponse> = _currencyList
     private val _currencyList = MutableLiveData<List<CurrencyResponse.CurrencyInfo?>>()
     val currencyList: LiveData<List<CurrencyResponse.CurrencyInfo?>> = _currencyList
 
@@ -33,8 +29,6 @@ class CurrencyViewModel(private val api: ApiMoney) : ViewModel(), KoinComponent 
 
             )
             _currencyList.postValue(listValute)
-
-//            _currencyList.postValue(api.getCurrency())
         }
     }
 }

@@ -36,12 +36,9 @@ class CurrencyFragment : Fragment(R.layout.fragment_currency) {
         observe(viewModel.currencyList, ::handleCurrency)
     }
 
-    private fun handleCurrency(item: List<CurrencyResponse.CurrencyInfo?>) {
-        testTw.text = item[0]?.name
+    private fun handleCurrency(item: List<CurrencyResponse.CurrencyInfo?>?) {
+        testTw.text = item?.get(0)?.name
         Log.d("CURRENCY", "Ooops")
-//        testTw.text = item[0]?.name
-//        Log.d("CURRENCY", "Ooops")
-
 //        adapter.setList(item.valute)
     }
 }

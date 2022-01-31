@@ -17,6 +17,10 @@ class CurrencyFragment : Fragment(R.layout.fragment_currency) {
     private val viewModel by viewModel<CurrencyViewModel>()
 
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.getCurrency()
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRv()
@@ -32,9 +36,11 @@ class CurrencyFragment : Fragment(R.layout.fragment_currency) {
         observe(viewModel.currencyList, ::handleCurrency)
     }
 
-    private fun handleCurrency(item: CurrencyResponse?) {
-        testTw.text = item?.date
+    private fun handleCurrency(item: List<CurrencyResponse.CurrencyInfo?>) {
+        testTw.text = item[0]?.name
         Log.d("CURRENCY", "Ooops")
+//        testTw.text = item[0]?.name
+//        Log.d("CURRENCY", "Ooops")
 
 //        adapter.setList(item.valute)
     }

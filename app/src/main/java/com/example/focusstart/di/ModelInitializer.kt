@@ -7,14 +7,7 @@ import com.exapmle.focusstart.model.server_model.CurrencyResponse
 import org.koin.dsl.module
 
 val retrofitModule = module {
-    single<RetrofitClient> {
-        RetrofitClient
+    single<ApiMoney> {
+        CommonRetrofit.apiMoney
     }
-
-    single<CommonRetrofit> {
-        CommonRetrofit
-    }
-
-
-
 }

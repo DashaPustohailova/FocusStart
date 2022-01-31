@@ -28,8 +28,7 @@ data class CurrencyResponse(
         val byn: CurrencyInfo?,
         @SerializedName("BGN")
         val bgn: CurrencyInfo?
-    ) {
-
+    )
         data class CurrencyInfo(
             @SerializedName("ID")
             val id: String?,
@@ -46,5 +45,5 @@ data class CurrencyResponse(
             @SerializedName("Previous")
             val previous: Float?
         )
-    }
+
 }

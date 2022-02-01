@@ -18,5 +18,4 @@ class app : Application() {
             modules(listOf(viewModelModule, retrofitModule, roomModule))
         }
     }
-
 }

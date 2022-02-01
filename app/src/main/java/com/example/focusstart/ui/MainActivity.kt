@@ -2,13 +2,9 @@ package com.example.focusstart.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.focusstart.R
-import com.exapmle.focusstart.model.retrofit.CommonRetrofit
 
 lateinit var mNavController: NavController
 class MainActivity : AppCompatActivity(R.layout.activity_main) {

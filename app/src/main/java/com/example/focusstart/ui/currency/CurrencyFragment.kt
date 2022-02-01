@@ -1,16 +1,14 @@
-package com.exapmle.focusstart.ui.currency
+package com.example.focusstart.ui.currency
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.exapmle.focusstart.environment.extentions.observe
 import com.example.focusstart.R
-import com.example.focusstart.environment.extentions.gone
-import com.example.focusstart.ui.currency.CurrencyAdapter
+import com.example.focusstart.model.room.dto.CurrencyInfo
 import com.example.focusstart.ui.mNavController
-import com.exapmle.focusstart.model.server_model.CurrencyResponse
+import com.exapmle.focusstart.ui.currency.CurrencyViewModel
 import kotlinx.android.synthetic.main.fragment_currency.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -20,11 +18,9 @@ class CurrencyFragment : Fragment(R.layout.fragment_currency) {
     private lateinit var mAdapter: CurrencyAdapter
     private lateinit var mRecyclerView: RecyclerView
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.getCurrency()
-        viewModel.getUpdateDate()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -32,7 +28,7 @@ class CurrencyFragment : Fragment(R.layout.fragment_currency) {
         setupToolbar()
         setupRv()
         setupObservers()
-//        timestampObservers()
+        setupClickListeners()
     }
 
     private fun setupToolbar() {
@@ -40,15 +36,7 @@ class CurrencyFragment : Fragment(R.layout.fragment_currency) {
             inflateMenu(R.menu.currency_menu)
             setOnMenuItemClickListener {
                 when (it.itemId) {
-                    R.id.sync -> {
-                        // Navigate to settings screen
-                        viewModel.getCurrency()
-                        viewModel.getUpdateDate()
-                        Toast.makeText(requireContext(), "Test", Toast.LENGTH_LONG).show()
-                        true
-                    }
                     R.id.calcul -> {
-
                         mNavController.navigate(R.id.action_currencyFragment_to_calculateFragment)
                         true
                     }
@@ -56,9 +44,6 @@ class CurrencyFragment : Fragment(R.layout.fragment_currency) {
                 }
             }
         }
-
-
-
     }
 
     private fun setupRv() {
@@ -67,18 +52,19 @@ class CurrencyFragment : Fragment(R.layout.fragment_currency) {
         mRecyclerView.adapter = mAdapter
     }
 
+    private fun setupClickListeners(){
+        swipeRefreshLayout.setOnRefreshListener{
+            viewModel.getCurrency()
+        }
+    }
+
     private fun setupObservers() {
         observe(viewModel.currencyList, ::handleCurrency)
     }
-//
-//    private fun timestampObservers() {
-//        observe(viewModel.updateDate, ::handleTimestamp)
-//    }
-    private fun handleCurrency(item: List<CurrencyResponse.CurrencyInfo?>?) {
+
+    private fun handleCurrency(item: List<CurrencyInfo>?) {
         mAdapter.setList(item)
+        swipeRefreshLayout.isRefreshing = false
     }
-//    private fun handleTimestamp(date: String?){
-//        mAdapter.setTimestamp(date)
-//    }
 
 }

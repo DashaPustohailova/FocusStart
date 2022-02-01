@@ -6,7 +6,7 @@
     app:startDestination="@id/currencyFragment">
     <fragment
         android:id="@+id/currencyFragment"
-        android:name="com.exapmle.focusstart.ui.currency.CurrencyFragment"
+        android:name="com.example.focusstart.ui.currency.CurrencyFragment"
         android:label="CurrencyFragment"
         tools:layout="@layout/fragment_currency" >
         <action

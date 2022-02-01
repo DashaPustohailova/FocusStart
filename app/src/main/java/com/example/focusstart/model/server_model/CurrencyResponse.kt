@@ -1,4 +1,4 @@
-package com.exapmle.focusstart.model.server_model
+package com.example.focusstart.model.server_model
 
 import com.google.gson.annotations.SerializedName
 
@@ -14,7 +14,6 @@ data class CurrencyResponse(
     @SerializedName("Valute")
     val valute: Valute?
 ) {
-
     data class Valute(
         @SerializedName("AUD")
         val aud: CurrencyInfo?,
@@ -102,5 +101,4 @@ data class CurrencyResponse(
             @SerializedName("Previous")
             val previous: Float?
         )
-
 }

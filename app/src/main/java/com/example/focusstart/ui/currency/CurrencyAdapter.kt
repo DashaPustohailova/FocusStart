@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.focusstart.R
-import com.exapmle.focusstart.model.server_model.CurrencyResponse
+import com.example.focusstart.model.room.dto.CurrencyInfo
 
 class CurrencyAdapter: RecyclerView.Adapter<CurrencyHolder>() {
 
-    private var mListCurrency = emptyList<CurrencyResponse.CurrencyInfo?>()
+    private var mListCurrency = emptyList<CurrencyInfo>()
     private var timestampt = ""
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CurrencyHolder {
@@ -18,20 +18,14 @@ class CurrencyAdapter: RecyclerView.Adapter<CurrencyHolder>() {
 
     override fun onBindViewHolder(holder: CurrencyHolder, position: Int) {
         holder.itemNameValute.text = mListCurrency[position]?.name
-        holder.itemCode.text = "Код: " +  mListCurrency[position]?.charCode + " " + mListCurrency[position]?.numCode
+        holder.itemCode.text= "Код: " +  mListCurrency[position]?.charCode + " " + mListCurrency[position]?.numCode
         holder.itemValue.text = "Курс: " + mListCurrency[position]?.value  + " ₽"
-//        holder.itemTimestamp.text = timestampt
     }
 
     override fun getItemCount(): Int = mListCurrency.size
 
-    fun setList(list: List<CurrencyResponse.CurrencyInfo?>?) {
+    fun setList(list: List<CurrencyInfo>?) {
         mListCurrency = list?: emptyList()
-        notifyDataSetChanged()
-    }
-
-    fun setTimestamp(time: String?){
-        timestampt = time?:""
         notifyDataSetChanged()
     }
 

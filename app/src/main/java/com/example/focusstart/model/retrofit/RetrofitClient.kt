@@ -1,4 +1,4 @@
-package com.exapmle.focusstart.model.retrofit
+package com.example.focusstart.model.retrofit
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

@@ -1,12 +1,11 @@
 package com.example.focusstart.ui.calculate
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Toast
+import androidx.navigation.findNavController
 import com.example.focusstart.R
 import com.example.focusstart.model.room.dto.CurrencyInfo
 import com.exapmle.focusstart.environment.extentions.observe
@@ -34,8 +33,10 @@ class CalculateFragment: Fragment(R.layout.fragment_calculate) {
 
     private fun setupClickListener() {
         convertButton.setOnClickListener {
-            val result = etRub.text.toString().toFloat()/valueCurrency.toFloat()
-            etResult.setText(result.toString())
+            if(!etRub.text.toString().equals("")){
+                val result = (etRub.text.toString().toFloat())/valueCurrency.toFloat()
+                etResult.setText(("%.2f".format(result)))
+            }
         }
     }
 
@@ -81,6 +82,10 @@ class CalculateFragment: Fragment(R.layout.fragment_calculate) {
     private fun setupToolbar() {
         toolbar.apply {
             inflateMenu(R.menu.calculate_menu)
+            setNavigationIcon(R.drawable.ic_circle_left_24)
+            setNavigationOnClickListener {
+                findNavController().navigate(R.id.action_calculateFragment_to_currencyFragment)
+            }
         }
     }
 }

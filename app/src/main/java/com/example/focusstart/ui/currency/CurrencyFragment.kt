@@ -37,8 +37,6 @@ class CurrencyFragment : Fragment(R.layout.fragment_currency) {
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.calcul -> {
-                        val bundle = Bundle()
-//                        bundle.putParcelable("currencyList", viewModel.currencyList.value)
                         findNavController().navigate(R.id.action_currencyFragment_to_calculateFragment)
                         true
                     }

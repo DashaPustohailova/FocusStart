@@ -6,5 +6,6 @@
     <string name="calculate">Calculate</string>
     <string name="sum">Сумма в рублях</string>
     <string name="convert">Конвертировать</string>
+    <string name="back">back</string>
     <array name="arrayCurrency"></array>
 </resources>

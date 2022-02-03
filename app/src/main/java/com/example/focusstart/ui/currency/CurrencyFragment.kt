@@ -3,11 +3,11 @@ package com.example.focusstart.ui.currency
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.exapmle.focusstart.environment.extentions.observe
 import com.example.focusstart.R
 import com.example.focusstart.model.room.dto.CurrencyInfo
-import com.example.focusstart.ui.mNavController
 import com.exapmle.focusstart.ui.currency.CurrencyViewModel
 import kotlinx.android.synthetic.main.fragment_currency.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -37,7 +37,9 @@ class CurrencyFragment : Fragment(R.layout.fragment_currency) {
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.calcul -> {
-                        mNavController.navigate(R.id.action_currencyFragment_to_calculateFragment)
+                        val bundle = Bundle()
+//                        bundle.putParcelable("currencyList", viewModel.currencyList.value)
+                        findNavController().navigate(R.id.action_currencyFragment_to_calculateFragment)
                         true
                     }
                     else -> false

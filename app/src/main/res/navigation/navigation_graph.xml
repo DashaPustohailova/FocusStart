@@ -23,5 +23,7 @@
             app:destination="@id/currencyFragment"
             app:launchSingleTop="true"
             app:popUpTo="@id/navigation_graph" />
+        <argument
+            android:name="currencyList"/>
     </fragment>
 </navigation>

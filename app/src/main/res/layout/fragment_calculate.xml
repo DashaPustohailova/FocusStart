@@ -18,11 +18,12 @@
         android:background="@color/black"/>
 
     <EditText
-        android:id="@+id/money"
-        android:layout_width="wrap_content"
+        android:id="@+id/etRub"
+        android:layout_width="197dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="192dp"
         android:ems="10"
+        android:text="0"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -30,12 +31,36 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <Spinner
-        android:id="@+id/planets_spinner"
+        android:id="@+id/spinnerCurrency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/money"
-        app:layout_constraintStart_toStartOf="@+id/money"
-        app:layout_constraintTop_toBottomOf="@+id/money" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etRub" />
+
+    <EditText
+        android:id="@+id/etResult"
+        android:layout_width="197dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:enabled="false"
+        android:text="Сумма"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCurrency" />
+
+    <Button
+        android:id="@+id/convertButton"
+        android:layout_width="197dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/convert"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etResult" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

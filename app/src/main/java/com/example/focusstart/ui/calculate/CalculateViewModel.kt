@@ -6,13 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.focusstart.model.room.AppRoomRepository
 import com.example.focusstart.model.room.dto.CurrencyInfo
+import com.example.focusstart.model.use_case.GetCurrencyRoomUseCase
 import com.example.focusstart.model.use_case.GetCurrencyUseCase
 import com.exapmle.focusstart.model.retrofit.ApiMoney
 import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
 
 class CalculateViewModel(
-    private val repository: AppRoomRepository
+    private val getCurrencyRoomUseCase: GetCurrencyRoomUseCase
 ) : ViewModel(), KoinComponent  {
 
     private val _currencyList = MutableLiveData<List<CurrencyInfo>>()
@@ -21,7 +22,7 @@ class CalculateViewModel(
 
     fun getCurrency() {
         viewModelScope.launch  {
-            _currencyList.postValue(repository.allCurrency())
+            _currencyList.postValue(getCurrencyRoomUseCase.updateCurrencyList())
         }
     }
 

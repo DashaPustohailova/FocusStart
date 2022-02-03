@@ -68,8 +68,6 @@ class CalculateFragment: Fragment(R.layout.fragment_calculate) {
                 currency?.forEach {
                     valueCurrency = it.value.toFloat()
                 }
-                Log.d("test", "rub = $valueCurrency")
-
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {

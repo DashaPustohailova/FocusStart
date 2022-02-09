@@ -11,7 +11,7 @@
 
 1 Room  
 2 Koin  
-3 MVVM 
+3 MVVM. 
 4 Retrofit  
 5 Coroutine  
 6 LiveData  
